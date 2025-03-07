@@ -1,1 +1,68 @@
-<html><body><h1>the-sap-guru</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudolf - The SAP Guru</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e2e;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #ffcc00, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .wizard {
+            font-size: 5em;
+        }
+        .btn {
+            background: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #ffcc00;
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wizard">🧙‍♂️</div>
+        <h1>Rudolf - The SAP Guru</h1>
+        <p>He casts ABAP spells and debugs with his magic staff. All hail the mighty SAP sorcerer!</p>
+        <button class="btn" onclick="showSecret()">Reveal the Guru's Secret</button>
+        <p class="hidden-message" id="secret">"The best SAP debugger is... a good night's sleep!"</p>
+    </div>
+
+    <script>
+        function showSecret() {
+            document.getElementById('secret').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
