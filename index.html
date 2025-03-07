@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,9 @@
             color: #ffffff;
             text-align: center;
             padding: 50px;
+            overflow-y: auto;
         }
+
         .container {
             max-width: 800px;
             margin: auto;
@@ -20,15 +23,18 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
         }
+
         h1 {
             font-size: 2.5em;
             background: linear-gradient(90deg, #ffcc00, #ff6600);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .wizard {
             font-size: 5em;
         }
+
         .btn {
             background: #ff6600;
             color: white;
@@ -39,30 +45,80 @@
             margin-top: 20px;
             border-radius: 5px;
         }
+
         .btn:hover {
             background: #ffcc00;
         }
+
         .hidden-message {
             display: none;
             margin-top: 20px;
             font-size: 1.2em;
             color: #ffcc00;
         }
+
+        .story {
+            text-align: left;
+            margin-top: 30px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .language-switch {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
+
 <body>
+    <div class="language-switch">
+        <button class="btn" onclick="setLanguage('en')">English 🇬🇧</button>
+        <button class="btn" onclick="setLanguage('sk')">Slovensky 🇸🇰</button>
+    </div>
     <div class="container">
         <div class="wizard">🧙‍♂️</div>
-        <h1>Rudolf - The SAP Guru</h1>
-        <p>He casts ABAP spells and debugs with his magic staff. All hail the mighty SAP sorcerer!</p>
-        <button class="btn" onclick="showSecret()">Reveal the Guru's Secret</button>
-        <p class="hidden-message" id="secret">"The best SAP debugger is... a good night's sleep!"</p>
+        <h1 data-en="Rudolf - The SAP Guru" data-sk="Rudolf - SAP Guru">Rudolf - The SAP Guru</h1>
+        <p data-en="He casts spells and debugs with his magic staff. All hail the mighty SAP sorcerer!"
+            data-sk="Kúzli kúzla a odstraňuje chyby svojou magickou palicou. Sláva mocnému SAP čarodejovi!">
+            He casts spells and debugs with his magic staff. All hail the mighty SAP sorcerer!
+        </p>
+        <button class="btn" onclick="showSecret()" data-en="Reveal the Guru's Secret"
+            data-sk="Odhaľ tajomstvo Guru">Reveal the Guru's Secret</button>
+        <p class="hidden-message" id="secret" data-en="The best SAP debugger is... a good night's sleep!"
+            data-sk="Najlepší SAP debugger je... dobrý nočný spánok!">
+            "The best SAP debugger is... a good night's sleep!"
+        </p>
+    </div>
+
+    <div class="story">
+        <h2 data-en="The Legend of the SAP Wizard" data-sk="Legenda o SAP čarodejovi">The Legend of the SAP Wizard</h2>
+        <p data-en="In the mystical realm of EnterpriseLand, where processes are tangled like ancient vines, there arose a wise and powerful wizard known as Rudolf. With a mere flick of his enchanted debugging staff, he could tame the wildest of SAP systems, banishing errors into the void and restoring harmony to the kingdom."
+            data-sk="V mystickej ríši EnterpriseLand, kde sú procesy zamotané ako starobylé vínne révy, povstal múdry a mocný čarodej Rudolf. S jediným mávnutím svojho očarovaného debuggerového žezla dokázal skrotiť najdivokejšie SAP systémy, vyháňať chyby do prázdna a obnovovať harmóniu v kráľovstve.">
+            In the mystical realm of EnterpriseLand, where processes are tangled like ancient vines, there arose a wise
+            and powerful wizard known as Rudolf. With a mere flick of his enchanted debugging staff, he could tame the
+            wildest of SAP systems, banishing errors into the void and restoring harmony to the kingdom.
+        </p>
+        <p data-en="Yet, beyond his wizardly prowess, there was a tale whispered among the clerks and scribes—a story of a noble knight. Clad not in robes, but in shining armor of logic and steel, he ventured forth, not only to slay the demons of misconfiguration but to guard the fair Lady Gabriela, a maiden of great grace and wisdom."
+            data-sk="Avšak, za jeho čarodejníckou mocou sa medzi úradníkmi a pisármi šepkala legenda o ušľachtilom rytierovi. Neobliekal si rúcho, ale lesklé brnenie logiky a ocele. Nevydával sa len na boj s démonmi nesprávnych konfigurácií, ale aj chrániť krásnu Lady Gabrielu, pannu plnú múdrosti a pôvabu.">
+            Yet, beyond his wizardly prowess, there was a tale whispered among the clerks and scribes—a story of a noble
+            knight. Clad not in robes, but in shining armor of logic and steel, he ventured forth, not only to slay the
+            demons of misconfiguration but to guard the fair Lady Gabriela, a maiden of great grace and wisdom.
+        </p>
     </div>
 
     <script>
         function showSecret() {
             document.getElementById('secret').style.display = 'block';
         }
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(element => {
+                element.innerText = element.getAttribute(`data-${lang}`);
+            });
+        }
     </script>
 </body>
+
 </html>
